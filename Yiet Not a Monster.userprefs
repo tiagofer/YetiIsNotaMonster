@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\Player.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Player\Yeti.cs" Line="60" Column="5" />
+      <File FileName="Assets\Scripts\Player\Player.cs" Line="79" Column="5" />
+      <File FileName="Assets\Scripts\Player\IMovement.cs" Line="10" Column="1" />
+      <File FileName="Assets\Scripts\Player\ChangePlayer.cs" Line="4" Column="16" />
+      <File FileName="Assets\Scripts\Level1\SceneElement\StartTreeAnim.cs" Line="11" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
