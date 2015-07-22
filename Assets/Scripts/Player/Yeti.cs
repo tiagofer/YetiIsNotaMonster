@@ -20,7 +20,7 @@ public class Yeti : MonoBehaviour, IMovement
 	{
 		animator = gameObject.GetComponent<Animator>();
 		Physics.gravity = new Vector3(0,-40.0f,0);
-		jump = 500.0f;
+		jump = 800.0f;
 	}
 	
 	void Update ()	
@@ -65,9 +65,12 @@ public class Yeti : MonoBehaviour, IMovement
 	
 	public void IJump()
 	{
+		_isGrounded = Physics.Linecast(transform.position, groundDetect.position, 1 << LayerMask.NameToLayer("Ground"));
+		//print(isGrounded);
+		animator.SetBool("isGrounded", _isGrounded);
 		if (ChangePlayer.ActiveYeti() || ChangePlayer.ActiveAll())
 		{
-			_isGrounded = Physics.Linecast(transform.position, groundDetect.position, 1 << LayerMask.NameToLayer("Ground"));
+			//_isGrounded = Physics.Linecast(transform.position, groundDetect.position, 1 << LayerMask.NameToLayer("Ground"));
 			if (Input.GetButton("Jump") && _isGrounded)
 			{
 				gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jump, ForceMode.Force);

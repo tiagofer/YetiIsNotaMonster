@@ -9,6 +9,17 @@ public class Player : MonoBehaviour, IMovement
 	public float velocity;
 	private float _posX;
 	private bool _isGrounded;
+	public bool isGrounded
+	{ 	
+		get
+		{
+			return _isActive;
+		}
+		set
+		{
+			_isActive = value;
+		}
+	}
 
 
 	public float jump;
@@ -58,7 +69,8 @@ public class Player : MonoBehaviour, IMovement
 		velocity += (acceleration * Time.deltaTime);
 		velocity = Mathf.Clamp(velocity, 0f, finalVelocity);
 		_posX = transform.position.x;
-		if (ChangePlayer.ActivePlayer() || ChangePlayer.ActiveAll()) 
+	
+		if ((ChangePlayer.ActivePlayer() || ChangePlayer.ActiveAll())) 
 		{
 			if (Input.GetAxis("Horizontal") > 0) 
 			{
@@ -85,13 +97,15 @@ public class Player : MonoBehaviour, IMovement
 	
 	public void IJump()
 	{
+		isGrounded = Physics.Linecast(transform.position, groundDetect.position, 1 << LayerMask.NameToLayer("Ground"));
+		print(isGrounded);
+		animator.SetBool("isGrounded", isGrounded);
 		if (ChangePlayer.ActivePlayer() || ChangePlayer.ActiveAll())
 		{
-			_isGrounded = Physics.Linecast(transform.position, groundDetect.position, 1 << LayerMask.NameToLayer("Ground"));
-			if (Input.GetButton("Jump") && _isGrounded)
+			if (Input.GetButton("Jump") && isGrounded)
 			{
 				gameObject.GetComponent<Rigidbody>().AddForce(transform.up * jump, ForceMode.Force);
-				
+
 			}
 		}
 	}
