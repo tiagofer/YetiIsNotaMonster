@@ -8,6 +8,7 @@ TagManager:
   - ground
   - tree
   - yeti
+  - endScene
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Ground
   - Player
-  - 
+  - Background
   - 
   - 
   - 
